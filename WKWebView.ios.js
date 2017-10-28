@@ -9,6 +9,7 @@ import ReactNative, {
   StyleSheet,
   UIManager,
   View,
+  ViewPropTypes,
   NativeModules,
   Text,
   ActivityIndicator
@@ -78,7 +79,7 @@ var WKWebView = createReactClass({
     NavigationType: NavigationType,
   },
   propTypes: {
-    ...View.propTypes,
+    ...ViewPropTypes,
 
     html: deprecatedPropType(
       PropTypes.string,
@@ -176,7 +177,7 @@ var WKWebView = createReactClass({
     onNavigationStateChange: PropTypes.func,
     scalesPageToFit: PropTypes.bool,
     startInLoadingState: PropTypes.bool,
-    style: View.propTypes.style,
+    style: ViewPropTypes.style,
     /**
      * Sets the JS to be injected when the webpage loads.
      */
@@ -266,7 +267,7 @@ var WKWebView = createReactClass({
     });
 
     if (this.props.source && typeof this.props.source == 'object') {
-      var source = Object.assign({}, this.props.source, { 
+      var source = Object.assign({}, this.props.source, {
         sendCookies: this.props.sendCookies,
         customUserAgent: this.props.customUserAgent || this.props.userAgent
       });
