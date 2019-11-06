@@ -4,14 +4,6 @@
 
 @class CRAWKWebView;
 
-/**
- * Special scheme used to pass messages to the injectedJavaScript
- * code without triggering a page load. Usage:
- *
- *   window.location.href = RCTJSNavigationScheme + '://hello'
- */
-extern NSString *const RCTJSNavigationScheme;
-
 @protocol CRAWKWebViewDelegate <NSObject>
 
 - (BOOL)webView:(CRAWKWebView *)webView
@@ -38,7 +30,13 @@ shouldStartLoadForRequest:(NSMutableDictionary<NSString *, id> *)request
 @property (nonatomic, copy) NSString *injectedJavaScript;
 @property (nonatomic, assign) BOOL hideKeyboardAccessoryView;
 @property (nonatomic, assign) BOOL keyboardDisplayRequiresUserAction;
-
+/**
+ * Special scheme used to pass messages to the injectedJavaScript
+ * code without triggering a page load. Usage:
+ *
+ *   window.location.href = RCTJSNavigationScheme + '://hello'
+ */
+@property (nonatomic, assign) NSString *RCTJSNavigationScheme;
 
 - (void)goForward;
 - (void)goBack;

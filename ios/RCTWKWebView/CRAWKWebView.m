@@ -469,7 +469,7 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
   NSURL* url = request.URL;
   NSString* scheme = url.scheme;
   
-  BOOL isJSNavigation = [scheme isEqualToString:RCTJSNavigationScheme];
+  BOOL isJSNavigation = [scheme isEqualToString:_RCTJSNavigationScheme];
   
   // handle mailto and tel schemes
   if ([scheme isEqualToString:@"mailto"] || [scheme isEqualToString:@"tel"]) {
